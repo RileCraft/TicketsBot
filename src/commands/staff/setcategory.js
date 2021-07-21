@@ -41,7 +41,7 @@ module.exports = {
     .setColor("RANDOM")
     .setTimestamp()
     .setTitle("✅╎Category Change")
-    .setDescription("The tickets will be formed at " + cy.name + "from now on.")
+    .setDescription("The tickets will be formed at **" + cy.name + "** from now on.")
     .setFooter(message.author.username, message.author.displayAvatarURL({dynamic: true}));
     message.channel.send(end)
     }

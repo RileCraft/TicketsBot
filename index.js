@@ -50,6 +50,12 @@ command.run(client, message, args)
 } }
 })
 client.login(token)
+const pinger = require("simple-website-pinger")
+
+pinger.webserver(3000)
+
+pinger.ping("https://ticketsbot.rilecraft.repl.co:3000")
+
 client.on('clickButton', async (button) => {
     const db = require('quick.db')
 		const name = `${button.clicker.user.username}`

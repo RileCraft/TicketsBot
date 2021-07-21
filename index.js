@@ -57,5 +57,7 @@ pinger.webserver(3000)
 pinger.ping("https://ticketsbot.rilecraft.repl.co:3000")
 
 client.on('clickButton', async (button) => {
-    button.send("hi")
+   if (button.id === "button") {
+button.send("hi")
+}
 });

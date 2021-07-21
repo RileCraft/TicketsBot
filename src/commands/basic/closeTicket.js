@@ -3,6 +3,7 @@ const db = require('quick.db')
 module.exports = {
     name : 'close',
     run : async(client, message, args) => {
+    	if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send(":x: Missing Permissions \`Manage Channels\`")
     	const id = message.channel.id 
     if (!db.get(id + ".ticket")) {
     	const unknown = new MessageEmbed()

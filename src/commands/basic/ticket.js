@@ -12,6 +12,12 @@ module.exports = {
        deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
   ],
-})
+}).then(channel => {
+	const embed = new MessageEmbed()
+	.setColor('RANDOM')
+	.setTimestamp()
+	.setDescription("<#" + channel.id + ">");
+	message.channel.send(embed)
+	})
     }
 } 

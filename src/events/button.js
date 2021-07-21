@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'clickButton',
 	execute(button) {
-		button.reply("hi")
+		button.send("hi")
 	},
 };

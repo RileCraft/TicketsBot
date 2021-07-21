@@ -4,8 +4,14 @@ module.exports = {
     name : 'ticket',
     run : async(client, message, args) => {
     	const name = message.author.username
-    message.guild.channels.create("ticket-" + name, "text").then(channel => {
-    	channel.setParent("772829053861888050")
-    })
+    message.guild.channels.create("ticket-" + name, {
+  type: 'text',
+  permissionOverwrites: [
+     {
+       id: message.author.id,
+       deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
+    },
+  ],
+})
     }
 } 

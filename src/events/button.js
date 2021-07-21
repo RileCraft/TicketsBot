@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'clickButton',
-	execute(button, message) {
+	execute(button, message, guild) {
 		try {
 		const db = require('quick.db')
 		const name = button.clicker.user.username

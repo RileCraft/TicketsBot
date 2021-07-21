@@ -10,7 +10,7 @@ module.exports = {
     .setColor("RANDOM")
     .setTimestamp()
     .setTitle("❌╎No Argument")
-    .setDescription()
+    .setDescription("No argument for category ID was provided! Please provide the ID of the category where tickets will be created.")
     .setFooter(message.author.username, message.author.displayAvatarURL({dynamic: true}));
     message.channel.send(noarg)
     }

@@ -6,7 +6,7 @@ module.exports = {
     	const name = message.author.username
     message.guild.channels.create("ticket-" + name, {
   type: 'text',
-  parent: "772829053861888050",
+  parent: db.get("ticket.category")
   permissionOverwrites: [
      {
        id: message.author.id,

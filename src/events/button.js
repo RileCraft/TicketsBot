@@ -23,6 +23,7 @@ module.exports = {
   ],
 }).then(channel => {
 	db.set(channel.id + ".ticket", "true")
+	button.reply.send("Here is your ticket: <#" + channel.id + ">")
 	channel.send("<@" + button.clicker.user.id + ">, Here is your ticket!")
 	})
 	} catch (error) {

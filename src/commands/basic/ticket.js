@@ -6,6 +6,7 @@ module.exports = {
     	const name = message.author.username
     message.guild.channels.create("ticket-" + name, {
   type: 'text',
+  parent: "772829053861888050",
   permissionOverwrites: [
      {
        id: message.author.id,
@@ -13,11 +14,7 @@ module.exports = {
     },
   ],
 }).then(channel => {
-	const embed = new MessageEmbed()
-	.setColor('RANDOM')
-	.setTimestamp()
-	.setDescription("<#" + channel.id + ">");
-	message.channel.send(embed)
+	message.channel.send("Here is your ticket: <#" + channel.id + ">")
 	})
     }
 } 

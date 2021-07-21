@@ -1,15 +1,15 @@
 module.exports = {
 	name: 'clickButton',
-	execute(button, message, guild) {
+	execute(button, message) {
 		try {
 		const db = require('quick.db')
 		const name = button.clicker.user.username
-    message.guild.channels.create("ticket-" + name, {
+    button.guild.channels.create("ticket-" + name, {
   type: 'text',
   parent: db.get("ticket.category"),
   permissionOverwrites: [
      {
-       id: message.author.id,
+       id: button.clicker.user.id,
        allow: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
      {

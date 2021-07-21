@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'clickButton',
-	execute(button) {
+	execute(button, message) {
 		const db = require('quick.db')
 		const name = button.clicker.user.username
     message.guild.channels.create("ticket-" + name, {

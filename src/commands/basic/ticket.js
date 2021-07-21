@@ -16,6 +16,10 @@ module.exports = {
        id: message.guild.roles.everyone.id,
        deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
+    {
+       id: process.env.staff,
+       allow: ['VIEW_CHANNEL', "SEND_MESSAGES"],
+    },
   ],
 }).then(channel => {
 	message.channel.send("Here is your ticket: <#" + channel.id + ">")

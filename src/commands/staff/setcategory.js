@@ -36,7 +36,14 @@ module.exports = {
     message.channel.send(invalid)
     	}
     else {
-    	
+    	db.set("ticket.category", id)
+    const end = new MessageEmbed()
+    .setColor("RANDOM")
+    .setTimestamp()
+    .setTitle("✅╎Category Change")
+    .setDescription("The tickets will be formed at " + cy.name + "from now on.")
+    .setFooter(message.author.username, message.author.displayAvatarURL({dynamic: true}));
+    message.channel.send(end)
     }
     
     }

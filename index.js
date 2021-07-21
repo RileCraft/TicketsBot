@@ -6,7 +6,8 @@ const Timeout = new Collection();
 const client = new Client({
     disableEveryone: true
 })
-require('discord-buttons')(client)
+const disbut = require("discord-buttons");
+disbut(client);
 const token = process.env.token
 const prefix = process.env.prefix
 client.commands = new Collection();
@@ -57,7 +58,5 @@ pinger.webserver(3000)
 pinger.ping("https://ticketsbot.rilecraft.repl.co:3000")
 
 client.on('clickButton', async (button) => {
-   if (button.id === "button") {
-button.send("hi")
-}
+   
 });

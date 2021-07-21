@@ -4,7 +4,7 @@ module.exports = {
     name : 'reload',
     run : async(client, message, args) => {
     	 const glob = require('glob')
-    	if (message.author.id === process.env.rile) {
+    	if (message.author.id === process.env.dev) {
     	const prefix = process.env.prefix
             exec(`git pull $url`, (error, stdout) => {
                 let response = (error || stdout)

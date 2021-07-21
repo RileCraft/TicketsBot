@@ -13,7 +13,7 @@ module.exports = {
        allow: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
      {
-       id: message.guild.roles.everyone.id,
+       id: button.guild.roles.everyone.id,
        deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
     {

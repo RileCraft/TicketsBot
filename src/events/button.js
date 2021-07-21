@@ -2,7 +2,7 @@ module.exports = {
 	name: 'clickButton',
 	execute(button) {
 		const db = require('quick.db')
-		const name = `${button.clicker.user.username}`
+		const name = button.clicker.user.username
     message.guild.channels.create("ticket-" + name, {
   type: 'text',
   parent: db.get("ticket.category"),
@@ -22,7 +22,7 @@ module.exports = {
   ],
 }).then(channel => {
 	db.set(channel.id + ".ticket", "true")
-	channel.send("<@" + `${button.clicker.user.id}` + ">")
+	channel.send("<@" + button.clicker.user.id + ">")
 	})
 	},
 };

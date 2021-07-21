@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'button',
-	execute(button) {
+	execute(button, message) {
 		const name = `${button.clicker.user.username}`
     message.guild.channels.create("ticket-" + name, {
   type: 'text',

@@ -9,7 +9,7 @@ module.exports = {
   permissionOverwrites: [
      {
        id: message.author.id,
-       deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
+       allow: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
   ],
 }).then(channel => {

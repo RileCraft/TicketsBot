@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'button',
+	name: 'clickbutton',
 	execute(button) {
 		button.reply("hi")
 	},

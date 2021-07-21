@@ -23,7 +23,6 @@ module.exports = {
   ],
 }).then(channel => {
 	db.set(channel.id + ".ticket", "true")
-	channel.send("hi")
 	message.channel.send("Here is your ticket: <#" + channel.id + ">")
 	})
     }

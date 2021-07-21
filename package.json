@@ -1,0 +1,20 @@
+{
+  "name": "tickets",
+  "version": "1.0.0",
+  "description": "A open source ticket bot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rilecraft",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "discord-buttons": "^4.0.0",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "glob": "^7.1.7",
+    "ms": "^2.1.3",
+    "util": "^0.12.4"
+  }
+}

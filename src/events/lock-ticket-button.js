@@ -10,8 +10,9 @@ module.exports = {
 			if (!process.env.staff) {
 				button.channel.overwritePermissions([
      {
-       id: button.clicker.user.id,
-       deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
+       id: author,
+       deny: ["SEND_MESSAGES"],
+       allow: ["VIEW_CHANNEL"],
     },
      {
        id: button.guild.roles.everyone.id,
@@ -23,8 +24,9 @@ module.exports = {
 				else {
 					button.channel.overwritePermissions([
      {
-       id: button.clicker.user.id,
-       deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
+       id: author,
+       deny: ["SEND_MESSAGES"],
+       allow: ["VIEW_CHANNEL"],
     },
      {
        id: button.guild.roles.everyone.id,

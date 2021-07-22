@@ -11,8 +11,7 @@ module.exports = {
 				button.channel.overwritePermissions([
      {
        id: author,
-       deny: ["SEND_MESSAGES"],
-       allow: ["VIEW_CHANNEL"],
+       deny: ['VIEW_CHANNEL', "SEND_MESSAGES"],
     },
      {
        id: button.guild.roles.everyone.id,

@@ -6,23 +6,6 @@ module.exports = {
     	 const glob = require('glob')
     	if (message.author.id === process.env.dev) {
     	const prefix = process.env.prefix
-            exec(`git pull $url`, (error, stdout) => {
-                let response = (error || stdout)
-                if (error) {
-                    const erro = new MessageEmbed()
-                        .setColor('RANDOM')
-                        .setTitle('🎄╎Terminal')
-                        .setDescription(`\`\`\`kt${error.message}\`\`\``)
-                        .setTimestamp();
-                    message.channel.send(erro)
-                } else {
-                    const result = new MessageEmbed()
-                        .setColor('RANDOM')
-                        .setTitle('🎄╎Terminal')
-                        .setDescription(`\`\`\`kt
-${response}\`\`\``)
-                        .setTimestamp();
-                    message.channel.send(result)
                     client.commands.sweep(() => true)
         glob(`${__dirname}/../**/*.js`, async (err, filePaths) => {
             if (err) return message.reply(

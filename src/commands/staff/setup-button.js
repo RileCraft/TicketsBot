@@ -8,7 +8,7 @@ module.exports = {
     let button = new MessageButton()
   .setStyle('blurple')
   .setLabel('Open Ticket') 
-  .setID('button');
+  .setID('open');
 
 message.channel.send('Interact with the button to create a ticket!', button);
     }

@@ -22,6 +22,11 @@ else {
   SEND_MESSAGES: true,
   VIEW_CHANNEL: true
 })
+const embed = new MessageEmbed()
+	.setColor('RANDOM')
+	.setTimestamp()
+	.setDescription('Added <@' + user + "> (" + client.users.cache.get(user).tag + ") to the ticket!");
+	message.channel.send(embed)
     }
   
     }

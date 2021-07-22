@@ -4,12 +4,24 @@ const { MessageButton } = require("discord-buttons")
 module.exports = {
     name : 'setup',
     run : async(client, message, args) => {
-    	if (!message.member.roles.cache.has(process.env.staff) || message.member.permissions.has("ADMINISTRATOR") === "false") return message.channel.send(":x: You don't have the required permission to run this command")
+    	if (!process.env.staff) {
+    	if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(":x: You don't have the required permission to run this command")
     let button = new MessageButton()
   .setStyle('blurple')
   .setLabel('Open Ticket') 
   .setID('open');
 
 message.channel.send('Interact with the button to create a ticket!', button);
+    }
+    else {
+    	if (!message.member.roles.cache.has(process.env.staff)) return message.channel.send(":x: You don't have the required permission to run this command")
+    let button = new MessageButton()
+  .setStyle('blurple')
+  .setLabel('Open Ticket') 
+  .setID('open');
+
+message.channel.send('Interact with the button to create a ticket!', button);
+    }
+    
     }
 } 

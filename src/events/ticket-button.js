@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'clickButton',
 	execute(button, message) {
+		if (button.id === "open") {
 		if (!button.guild.me.permissions.has("MANAGE_CHANNELS")) return button.reply.send(":x: Missing Permissions \`Manage Channels\`")
 		try {
 		const db = require('quick.db')
@@ -29,6 +30,7 @@ module.exports = {
 	})
 	} catch (error) {
 		console.log(error)
+		}
 		}
 	},
 };

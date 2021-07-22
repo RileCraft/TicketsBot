@@ -4,8 +4,8 @@ module.exports = {
 		if (button.id === "open") {
 		if (!button.guild.me.permissions.has("MANAGE_CHANNELS")) return button.reply.send(":x: Missing Permissions \`Manage Channels\`")
 		const db = require('quick.db')
-		if (!db.get("ticket.category")) return message.channel.send("There is no category set yet for tickets! Staff use \`" + process.env.prefix + "setcategory [Category ID]\` to set it!")
-    if (!message.guild.channels.cache.get(db.get("ticket.category"))) return message.channel.send("The category ID setuped is not invalid! Please set a valid ID using \`" + process.env.prefix + "setcategory [ID]\`")
+		if (!db.get("ticket.category")) return button.reply.send("There is no category set yet for tickets! Staff use \`" + process.env.prefix + "setcategory [Category ID]\` to set it!")
+    if (!message.guild.channels.cache.get(db.get("ticket.category"))) return button.reply.send("The category ID setuped is not invalid! Please set a valid ID using \`" + process.env.prefix + "setcategory [ID]\`")
 		try {
 		if (!process.env.staff) {
 		const name = button.clicker.user.username

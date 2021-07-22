@@ -25,7 +25,7 @@ module.exports = {
   ],
 }).then(channel => {
 	db.set(channel.id + ".ticket", "true")
-	db.set(channel.id + ".author", button.author.id)
+	db.set(channel.id + ".author", button.clicker.user.id)
 	button.reply.send("Here is your ticket: <#" + channel.id + ">", true)
 	
 	let lock = new MessageButton()

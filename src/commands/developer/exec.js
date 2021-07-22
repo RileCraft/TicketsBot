@@ -7,7 +7,8 @@ module.exports = {
         if (message.author.id === process.env.dev) {
             const { exec } = require("child_process")
             const prefix = process.env.prefix
-            exec(args.join(" "), (error, stdout) => {
+            const msg = args.join(" ")
+            exec(msg, (error, stdout) => {
                 let response = (error || stdout)
                 if (error) {
                     const erro = new MessageEmbed()

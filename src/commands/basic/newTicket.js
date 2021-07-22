@@ -26,7 +26,7 @@ module.exports = {
 	db.set(channel.id + ".ticket", "true")
 	db.set(channel.id + ".author", message.author.id)
 	
-	const { MessageButton } = require('discord-buttons')
+	const { MessageButton, MessageActionRow } = require('discord-buttons')
 let lock = new MessageButton()
   .setStyle('red')
   .setLabel('🔒 Lock this ticket.') 

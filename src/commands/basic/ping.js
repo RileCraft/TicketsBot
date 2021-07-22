@@ -7,7 +7,7 @@ description: "Shows the latency of Bot and the Websocket.",
         const ping = new MessageEmbed()
 	.setColor('RANDOM')
 	.setTimestamp()
-        .setTitle('🏓╎Peong!')
+        .setTitle('🏓╎Pong!')
 	.setDescription('🏠╎Websocket Latency:' + " " + client.ws.ping + "ms" + '\n🤖╎Bot Latency:' + " " + `${Date.now() - message.createdTimestamp}` + "ms");
 	message.channel.send(ping)
     }

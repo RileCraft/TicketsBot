@@ -27,7 +27,21 @@ module.exports = {
 	db.set(channel.id + ".ticket", "true")
 	db.set(channel.id + ".author", button.author.id)
 	button.reply.send("Here is your ticket: <#" + channel.id + ">", true)
-	channel.send("<@" + button.clicker.user.id + ">, Here is your ticket!")
+	
+	let lock = new MessageButton()
+  .setStyle('red')
+  .setLabel('🔒 Lock this ticket.') 
+  .setID('lock') 
+
+let close = new MessageButton()
+  .setStyle('blurple')
+  .setLabel('🔑 Close this ticket.') 
+  .setID('close')
+
+let buttons = new MessageActionRow()
+  .addComponents(lock, close);
+	
+	channel.send("Ticket Control Panel", buttons)
 	})
 	} catch (error) {
 		console.log(error)

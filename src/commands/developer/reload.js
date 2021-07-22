@@ -39,7 +39,6 @@ module.exports = {
                 .setFooter(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
         )
                 }
-            })
         }
         else {
         	const ye = new MessageEmbed()

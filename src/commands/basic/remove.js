@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js')
 const db = require('quick.db')
 module.exports = {
-    name : 'add',
+    name : 'remove',
     run : async(client, message, args) => {
     	if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send(":x: Missing Permissions \`Manage Channels\`")
     	const id = message.channel.id 

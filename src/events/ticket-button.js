@@ -28,7 +28,7 @@ module.exports = {
 	db.set(channel.id + ".author", button.clicker.user.id)
 	button.reply.send("Here is your ticket: <#" + channel.id + ">", true)
 	
-	const { MessageButton } = require('discord-buttons')
+	const { MessageButton, MessageActionRow} = require('discord-buttons')
 	let lock = new MessageButton()
   .setStyle('red')
   .setLabel('🔒 Lock this ticket.') 

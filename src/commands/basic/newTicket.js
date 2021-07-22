@@ -24,7 +24,7 @@ module.exports = {
   ],
 }).then(channel => {
 	db.set(channel.id + ".ticket", "true")
-	db.set(channel.id + ".author", button.author.id)
+	db.set(channel.id + ".author", message.author.id)
 	
 	const { MessageButton } = require('discord-buttons')
 let lock = new MessageButton()

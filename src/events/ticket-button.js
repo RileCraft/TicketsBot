@@ -6,7 +6,7 @@ module.exports = {
 		try {
 			const db = require('quick.db')
 		if (!db.get("ticket.category")) return button.reply.send("There is no category set yet for tickets! Staff use \`" + process.env.prefix + "setcategory [Category ID]\` to set it!")
-    if (!message.guild.channels.cache.get(db.get("ticket.category"))) return button.reply.send("The category ID setuped is not invalid! Please set a valid ID using \`" + process.env.prefix + "setcategory [ID]\`")
+    if (!button.guild.channels.cache.get(db.get("ticket.category"))) return button.reply.send("The category ID setuped is not invalid! Please set a valid ID using \`" + process.env.prefix + "setcategory [ID]\`")
 		if (!process.env.staff) {
 		const name = button.clicker.user.username
     button.guild.channels.create("ticket-" + name, {

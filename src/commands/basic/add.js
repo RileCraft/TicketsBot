@@ -15,9 +15,10 @@ module.exports = {
     message.channel.send(unknown)
     }
 else {
-	if (!process.env.staff) {
-    	
-    else {
+	const user = args[0]
+	if (!user) return message.channel.send("Please provide the user ID of the person that you want to add to the ticket!")
+	if (isNaN(user)) return message.channel.send("Invalid user ID provided.")
+	if (!client.users.cache.get(user)) return message.channel.send("Invalid user ID provided.")
     	message.channel.updateOverwrite(user, {
   SEND_MESSAGES: true,
   VIEW_CHANNEL: true
@@ -28,7 +29,6 @@ const embed = new MessageEmbed()
 	.setDescription('Added <@' + user + "> (" + client.users.cache.get(user).tag + ") to the ticket!");
 	message.channel.send(embed)
     }
-  
-    }
+    
     }
 } 

@@ -24,6 +24,7 @@ module.exports = {
   ],
 }).then(channel => {
 	db.set(channel.id + ".ticket", "true")
+	db.set(channel.id + ".author", button.author.id)
 	message.channel.send("Here is your ticket: <#" + channel.id + ">")
 	})
     }

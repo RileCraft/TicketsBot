@@ -1,53 +1,44 @@
+const chalk = require('chalk')
+global.db = require('quick.db')
 const {Collection, Client, Discord} = require('discord.js')
 const fs = require('fs')
-const env = require("dotenv").config()
 const ms = require('ms')
+const { MessageEmbed } = require('discord.js')
 const Timeout = new Collection();
+const env = require("dotenv").config()
 const client = new Client({
     disableEveryone: true
 })
-const disbut = require("discord-buttons");
-disbut(client);
-const token = process.env.token
+exports.client = client
+require('discord-buttons')(client);
 const prefix = process.env.prefix
+const token = process.env.token
 client.commands = new Collection();
 client.aliases = new Collection();
-client.categories = fs.readdirSync("./src/commands/");
-["command"].forEach(handler => {
-    require(`./src/handlers/${handler}`)(client);
-}); 
+
+const glob = require("glob");
+let getDirectories = function (src, callback) {
+  glob(src + '/**/*', callback);
+};
+getDirectories(__dirname + '/src/commands', function (err, res) {
+  res.forEach(file => {
+  let path = file.toString()
+  if (fs.statSync(path).isDirectory()) return;
+  const cmdhandler = require(path)
+  let name = cmdhandler.name
+  client.commands.set(name, cmdhandler)
+  if(cmdhandler.aliases && Array.isArray(cmdhandler.aliases)) cmdhandler.aliases.forEach(alias => client.aliases.set(alias, name))
+  	})
+});
 
 const eventFiles = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
-	const event = require(`./src/events/${file}`);
+	const event = require(`./events/${file}`);
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(...args, client));
 	} else {
 		client.on(event.name, (...args) => event.execute(...args, client));
 	}
 }
-
-client.on('message', async message =>{
-    if(message.author.bot) return;
-    if(!message.content.startsWith(prefix)) return;
-    if(!message.guild) return;
-    if(!message.member) message.member = await message.guild.fetchMember(message);
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    if(cmd.length == 0 ) return;
-    let command = client.commands.get(cmd)
-    if(!command) command = client.commands.get(client.aliases.get(cmd));
-    if(command) {
-if (command.timeout) {
-                                if (Timeout.has(`${command.name}${message.author.id}`)) return message.channel.send(`You are on a \`${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), {long : true})}\` cooldown.`)
-                                command.run(client, message, args)
-                                Timeout.set(`${command.name}${message.author.id}`, Date.now() + command.timeout)
-                                setTimeout(() => {
-                                    Timeout.delete(`${command.name}${message.author.id}`)
-                                }, command.timeout)
-                        }else {
-command.run(client, message, args)
-} }
-})
 client.login(token)

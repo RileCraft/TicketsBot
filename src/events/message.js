@@ -2,7 +2,7 @@ module.exports = {
 	name: 'message',
 	execute(message) {
 		(async () => {
-			const { client } = require("../index")
+			const { client } = require("../../index")
 			const { MessageEmbed } = require('discord.js')
 			const prefix = process.env.prefix
 if(message.author.bot) return;

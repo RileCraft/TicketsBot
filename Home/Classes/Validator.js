@@ -66,7 +66,7 @@ class validator {
 
 static ownerOnly(command, message, isInt) {
     if (command.ownerOnly) {
-    	let owner = process.env.dev || client?.config?.dev || config?.dev
+    	let owner = config.dev
     	if (!Array.isArray(owner)) owner = [owner]
         if (isInt) {
             if (owner.some(x => message.user.id == x)) return true

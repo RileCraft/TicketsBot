@@ -8,7 +8,6 @@ module.exports = {
     required: true,
     description: "Provide the code to execute."
     	}],
-    guild: "705681476674650143",
     run : async(client, interaction, Discord) => {
     	 const { exec } = require("child_process")
     const row = new Discord.MessageActionRow()

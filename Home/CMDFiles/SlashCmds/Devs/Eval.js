@@ -8,7 +8,6 @@ module.exports = {
     required: true,
     description: "Provide the code to eval."
     	}],
-    guild: "705681476674650143",
     run : async(client, interaction, Discord) => {
     	let txt = interaction.options.getString("code")
     const row = new Discord.MessageActionRow()

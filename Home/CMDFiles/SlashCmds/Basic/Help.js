@@ -1,7 +1,6 @@
 module.exports = {
     name : 'help',
     description: "View all our commands!",
-    guild: "705681476674650143",
     run : async(client, interaction, Discord) => {
     	const embed = new Discord.MessageEmbed()
     .setTimestamp()

@@ -1,6 +1,5 @@
 module.exports = {
 	name: "ping",
-	guild: "705681476674650143",
 	description: "Run this to see my ping.",
 	run: async(client, interaction, Discord) => {
         const ping = new Discord.MessageEmbed()

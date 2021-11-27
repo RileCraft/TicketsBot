@@ -1,6 +1,5 @@
 module.exports = {
     name: "ticket",
-    guild: "705681476674650143",
     options: [{
         name: "setcategory",
         options: [{
